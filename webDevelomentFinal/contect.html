@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/vender/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/vender/animate.min.css">
+    <link rel="stylesheet" href="./css/contectstyle.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@200;300&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">   
+    <title>110919002藍中崑聯絡資訊</title>
+
+    <!-- Firebase App is always required and must be first -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+
+    <!-- Add additional services that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
+
+    <script type="text/javascript" src="./js/vender/jQuery.js"></script>
+    <script type="text/javascript" src="./js/vender/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="./js/vender/wow.min.js"></script> -->
+    <script type="text/javascript" src="./js/vender/gsap.min.js"></script>
+    <script type="text/javascript" src="./js/contect.js"></script>
+</head>
+<body>
+    <header>    
+            <nav class="navbar navbar-expand-lg navbar-light bg-blue fixed-top">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#"><h1 class="logo_title">藍中崑的聯絡資訊</h1></a>
+                  
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-icon-bar" menu-click="false"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                      <li> <audio src="./img/米津玄師-「死神」.mp3" type="audio/mpeg" preload="metadata" autoplay loop controls>瀏覽器不支援QQ</audio></li>
+                      <li class="nav-item">
+                        <a class="nav-link active nav-link-font" aria-current="page" href="./index.html">首頁</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link nav-link-font" href="./sport.html">運動</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link nav-link-font" href="./contect.html">聯絡資訊</a>
+                      </li>
+                      <li class="nav-item ">
+                        <a class="nav-link nav-link-font" href="./practice.html">練習區</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-link-font" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          其他連結
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                          <li><a class="dropdown-item" href="https://mcqueen7.github.io/HTML-Week1/" target="_blank">純HTML練習</a></li>
+                          <li><a class="dropdown-item" href="https://mcqueen7.github.io/HTML_week5/" target="_blank">指定FLEX排版練習</a></li>
+                          <li><a class="dropdown-item" href="https://mcqueen7.github.io/HTMLmidterm/index.html" target="_blank">校園躲貓貓(期中)</a></li>
+                          <li><a class="dropdown-item" href="https://mcqueen7.github.io/HTMLfinalterm/index.html" target="_blank">校園躲貓貓(期末)</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+    </header>
+    <div class="main">  
+        <div class="bigtitle animate__animated animate__zoomIn">今天的我，也一定要超越昨天的自己</div>
+        <div class="my_info_container">
+            <div class="my_info">
+            <h2>我的連絡資訊</h2>
+                <h4>電話：0900398978</h4>
+                <h4>信箱：chqueen.tw@gmail.com</h4>
+                <h4>LINE：mcqueen7777777</h4>
+                <h4>其他：<a href="#footer">下方社群連結</a></h4>
+            </div>
+        </div>
+
+        <div class="hr"></div> 
+        <div class="firebase_chat">
+            <div class="card shadow chat_card">
+                <div class="card-header text-center chat_title">
+                    匿名留言板(無須登入)
+                </div>
+                <div class="card-body">
+                    <ul class="message-list" id="message-list1"></ul>
+                </div>
+                <div class="container card-footer chat_keyin">
+                    <div class="row g-1">
+                        <div class="col-xl-2">
+                            <input type="text" class="form-control-plaintext name-field " id="name-field1" placeholder="輸入姓名 ...">
+                        </div>
+                        <div class="col-xl-7">
+                            <input type="text" class="form-control-plaintext message-field" id="message-field1" placeholder="輸入留言...">  
+                        </div>
+                        <div class="col-xl-1">
+                            <input type="color" value="#0091FF" id="color">
+                        </div>
+                        <div class="col-xl-2">
+                            <button type="button" class="send_btn" id="send_btn" value="留言"> 留言 </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hr"></div> 
+        <div class="firebase_auth">
+            <div class="card shadow mt-5 auth_card">
+                <div class="card-header text-center auth_title">
+                  會員登入
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    <label for="email" class="form-control-label">信箱:</label>
+                    <input type="text" class="form-control" id="email" placeholder="Example@mail.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="password" class="form-control-label">密碼:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Must have at least 6 characters" minlength="6" required>
+                  </div>
+                  <div class="row g-2 text-center justify-content-around">
+                    <button type="button" class="btn col-xl-4 btn-info shadow" id="btnSignIn">登入</button>
+                    <button type="button" class="btn col-xl-4 btn-info shadow" id="btnSignUp">註冊</button>
+                    <button type="button" class="btn col-xl-4 btn-info shadow" id="btnSignOut">登出</button>
+                  </div>
+                  <!-- Sign Information -->
+                  <div class="card-text mt-3" id="sign-info">無使用者登入...</div>
+                </div>
+              </div>
+        </div>
+        
+        <div class="hr"></div> 
+        <h2>需要會員登入的聊天室:</h2>
+        
+        <a href="https://mcqueen7.github.io/HTMLfinalterm/join.html" style="font-size: 24px;margin-left: 60px;">前端期末校園躲貓貓大賽報名頁</a>
+        
+        <div class="hr"></div> 
+           
+    </div>
+   
+
+
+    <footer id="footer"> 
+        <div class="footer_container "><p> © 藍中崑著作所有並保留一切權利</p>
+          <div class="footer_icon">
+              <a target="_blank" href="https://www.facebook.com/profile.php?id=100007870485981"><img class="icon_img fblogo_img" src="./img/fblogo.png" alt="fblogo"></a>
+              <a target="_blank" href="https://www.youtube.com/channel/UCLpEs68e8YJnDDIXAKeR0Nw"><img class="icon_img yt logo_img" src="./img/ytlogo.png" alt="ytlogo"></a>
+              <a target="_blank" href="https://www.instagram.com/lan_chung_kun/"><img class="icon_img iglogo_img" src="./img/iglogo.png" alt="iglogo"></a>
+              <a target="_blank" href="mailto:chqueen.tw@gmail.com"><img class="icon_img gmaillogo_img" src="./img/gmaillogo.png" alt="gmaillogo"></a>
+          </div>
+        </div>
+      </footer>
+      
+   
+    
+   
+</body>
+    
+    
+
+</html>
